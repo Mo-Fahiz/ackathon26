@@ -1,0 +1,90 @@
+.wrap {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  min-height: 90px;
+}
+
+.label {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  font-family: var(--font-mono), monospace;
+  font-size: var(--step--1);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--grey);
+}
+
+.pulse {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--accent);
+  box-shadow: 0 0 0 0 rgba(104, 65, 230, 0.6);
+  animation: pulse 1.8s infinite;
+}
+
+@keyframes pulse {
+  70% {
+    box-shadow: 0 0 0 10px rgba(104, 65, 230, 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(104, 65, 230, 0);
+  }
+}
+
+.units {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+}
+
+.unit {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+}
+
+.digits {
+  display: flex;
+  gap: 3px;
+}
+
+.digit {
+  position: relative;
+  display: inline-flex;
+  justify-content: center;
+  width: 1.05em;
+  height: 1.45em;
+  line-height: 1.45em;
+  overflow: hidden;
+  border-radius: 8px;
+  background: rgba(244, 241, 234, 0.06);
+  border: 1px solid var(--line);
+  font-family: var(--font-mono), monospace;
+  font-size: clamp(1.25rem, 1rem + 1vw, 1.75rem);
+  font-weight: 500;
+  font-variant-numeric: tabular-nums;
+}
+
+.digit > span {
+  display: block;
+}
+
+.unitLabel {
+  font-family: var(--font-mono), monospace;
+  font-size: 0.7rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--grey);
+}
+
+.sep {
+  font-family: var(--font-mono), monospace;
+  font-size: clamp(1.25rem, 1rem + 1vw, 1.75rem);
+  line-height: 1.45em;
+  color: var(--grey);
+}

@@ -1,0 +1,240 @@
+.descent {
+  position: relative;
+  height: 494vh;
+}
+
+.sticky {
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  overflow: hidden;
+}
+
+.kicker {
+  position: absolute;
+  top: 88px;
+  left: 0;
+  right: 0;
+  text-align: center;
+  font-size: clamp(1.4rem, 1rem + 1.2vw, 2rem);
+  font-weight: 600;
+  letter-spacing: -0.02em;
+}
+
+/* Light lines */
+.links {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+}
+
+.base {
+  fill: none;
+  stroke: rgba(245, 244, 250, 0.1);
+  stroke-width: 1;
+}
+
+.lit {
+  fill: none;
+  stroke: var(--accent);
+  stroke-width: 1.6;
+}
+
+/* Energy flowing along the live line into the core */
+.pulse {
+  fill: none;
+  stroke: #e0d6ff;
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-dasharray: 2 26;
+  animation: flow 1.6s linear infinite;
+}
+
+@keyframes flow {
+  to {
+    stroke-dashoffset: -28;
+  }
+}
+
+.node {
+  fill: var(--space);
+  stroke: rgba(245, 244, 250, 0.35);
+}
+
+.nodeLit {
+  fill: var(--accent);
+  filter: drop-shadow(0 0 6px var(--accent));
+}
+
+/* Stage cards */
+.cards {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.card {
+  position: absolute;
+  width: clamp(250px, 22vw, 320px);
+  padding: 18px 20px;
+  border-radius: 16px;
+  border: 1px solid var(--line);
+  background: rgba(10, 10, 14, 0.62);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  transition: border-color 0.6s var(--ease), box-shadow 0.6s var(--ease), opacity 0.6s var(--ease);
+}
+
+.a {
+  left: var(--gutter);
+  top: 19%;
+}
+
+.b {
+  left: calc(var(--gutter) + 2vw);
+  top: 50%;
+}
+
+.c {
+  right: var(--gutter);
+  top: 19%;
+}
+
+.d {
+  right: calc(var(--gutter) + 2vw);
+  top: 50%;
+}
+
+.e {
+  left: 50%;
+  bottom: 7%;
+  transform: translateX(-50%);
+}
+
+.future {
+  opacity: 0.72;
+}
+
+.past {
+  opacity: 0.9;
+  border-color: rgba(104, 65, 230, 0.25);
+}
+
+.live {
+  opacity: 1;
+  border-color: rgba(104, 65, 230, 0.7);
+  box-shadow: 0 0 0 1px rgba(104, 65, 230, 0.15), 0 0 40px -6px rgba(104, 65, 230, 0.4), inset 0 0 30px -10px rgba(104, 65, 230, 0.25);
+}
+
+/* Date and event lead every card */
+.date {
+  display: block;
+  font-size: clamp(1.5rem, 1.2rem + 0.8vw, 1.9rem);
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  line-height: 1;
+  color: var(--white);
+}
+
+.live .date,
+.past .date {
+  color: var(--accent-text);
+}
+
+.title {
+  margin-top: 8px;
+  font-size: 1.3rem;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  color: var(--white);
+}
+
+.line {
+  margin-top: 6px;
+  font-size: 0.95rem;
+  line-height: 1.45;
+  color: #b9b7c4;
+}
+
+.week {
+  list-style: none;
+  margin: 12px 0 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 4px;
+}
+
+.week li {
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
+  padding: 6px 4px;
+  border-radius: 6px;
+  border: 1px solid var(--line);
+  font-size: 0.6rem;
+  color: var(--grey);
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+.day {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--white);
+}
+
+.week .finaleDay {
+  border-color: rgba(104, 65, 230, 0.6);
+}
+
+.week .finaleDay .day {
+  color: var(--accent-text);
+}
+
+.week .today {
+  background: var(--accent);
+  color: var(--white);
+}
+
+.week .today .day {
+  color: var(--white);
+}
+
+/* Mid widths: pull the side cards in a little */
+@media (max-width: 1100px) {
+  .card {
+    width: clamp(220px, 26vw, 280px);
+  }
+  .b,
+  .d {
+    top: 52%;
+  }
+}
+
+/* Phones: the hole above, the live stage below it */
+@media (max-width: 760px) {
+  .links {
+    display: none;
+  }
+  .kicker {
+    top: 76px;
+    font-size: 1.2rem;
+  }
+  /* Just under the hole, close to the middle of the screen. */
+  .card {
+    left: var(--gutter);
+    right: var(--gutter);
+    top: 52%;
+    bottom: auto;
+    width: auto;
+    transform: none;
+  }
+  .future,
+  .past {
+    opacity: 0;
+    pointer-events: none;
+  }
+}

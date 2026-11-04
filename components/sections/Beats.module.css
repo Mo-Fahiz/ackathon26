@@ -1,0 +1,28 @@
+.beats {
+  position: relative;
+  height: 285vh;
+}
+
+.sticky {
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  display: grid;
+  place-items: center;
+  padding: 0 var(--gutter);
+}
+
+.beat {
+  grid-area: 1 / 1;
+  text-align: center;
+  max-width: 14ch;
+  text-shadow: 0 2px 40px rgba(3, 3, 6, 0.9);
+}
+
+.scrim {
+  grid-area: 1 / 1;
+  align-self: stretch;
+  justify-self: stretch;
+  pointer-events: none;
+  background: radial-gradient(ellipse 60% 45% at center, rgba(3, 3, 6, 0.75), rgba(3, 3, 6, 0) 75%);
+}

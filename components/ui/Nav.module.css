@@ -1,0 +1,52 @@
+.nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 80;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 14px var(--gutter);
+  transition: background 0.4s var(--ease);
+}
+
+.solid {
+  background: rgba(3, 3, 6, 0.6);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+}
+
+.brand img {
+  height: 26px;
+  width: auto;
+}
+
+.cta {
+  padding: 11px 20px;
+  font-size: 0.92rem;
+}
+
+.bar {
+  display: none;
+}
+
+@media (max-width: 700px) {
+  /* Once the bottom bar is up, the header button steps aside so there's only one. */
+  .ctaDocked {
+    display: none;
+  }
+  .bar {
+    position: fixed;
+    left: 16px;
+    right: 16px;
+    bottom: max(16px, env(safe-area-inset-bottom));
+    z-index: 85;
+    display: block;
+  }
+  .bar :global(.btn) {
+    width: 100%;
+    justify-content: center;
+    padding: 16px;
+  }
+}
