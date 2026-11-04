@@ -1,6 +1,8 @@
 // Single source of truth for every word, date and link on the page.
 // Anything marked TODO is still missing.
 
+import { asset } from '@/lib/asset';
+
 const TODO = '#todo';
 
 export const links = {
@@ -11,9 +13,9 @@ export const links = {
 };
 
 export const brand = {
-  header: '/brand/Logo/horizontal/White.svg',
-  ring: '/brand/Logo/Badge/Ring.svg',
-  icon: '/brand/Logo/Badge/icon.svg',
+  header: asset('/brand/Logo/horizontal/White.svg'),
+  ring: asset('/brand/Logo/Badge/Ring.svg'),
+  icon: asset('/brand/Logo/Badge/icon.svg'),
 };
 
 // All dates are IST (+05:30).

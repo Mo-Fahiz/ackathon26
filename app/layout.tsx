@@ -1,5 +1,6 @@
 import type { Metadata, Viewport } from 'next';
 import { Instrument_Sans, JetBrains_Mono } from 'next/font/google';
+import { asset } from '@/lib/asset';
 import SmoothScroll from '@/components/ui/SmoothScroll';
 import './globals.css';
 
@@ -17,16 +18,20 @@ const mono = JetBrains_Mono({
   display: 'swap',
 });
 
+// Social previews need an absolute URL; the workflow supplies the deployed origin.
+const origin = process.env.NEXT_PUBLIC_SITE_ORIGIN;
+
 export const metadata: Metadata = {
+  ...(origin ? { metadataBase: new URL(origin) } : {}),
   title: 'ACKATHON 2026 · Imagination is the only limit',
   description:
     'Ackathon and Acknovation are one event this year. Pick a real problem, build the answer in five days, and pitch it to the people who can make it real. 4–9 Dec, ACKO Tech building, HSR, Bengaluru.',
-  icons: { icon: '/brand/Logo/Badge/primaryBadge.svg' },
+  icons: { icon: asset('/brand/Logo/Badge/primaryBadge.svg') },
   openGraph: {
     title: 'ACKATHON 2026',
     description: 'Imagination is the only limit. 4–9 Dec · ACKO Tech building, HSR, Bengaluru.',
     type: 'website',
-    images: ['/media/og.jpg'],
+    images: [asset('/media/og.jpg')],
   },
 };
 

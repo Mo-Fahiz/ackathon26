@@ -1,6 +1,7 @@
 'use client';
 
 import dynamic from 'next/dynamic';
+import { asset } from '@/lib/asset';
 import { useCalmMode, useWebGL } from '@/lib/motion';
 
 const Universe = dynamic(() => import('./Universe'), { ssr: false });
@@ -14,9 +15,9 @@ export default function Backdrop() {
   return (
     <div aria-hidden style={{ position: 'fixed', inset: 0, zIndex: 0, pointerEvents: 'none' }}>
       <picture>
-        <source media="(max-width: 760px)" srcSet="/media/blackhole-tall.jpg" />
+        <source media="(max-width: 760px)" srcSet={asset('/media/blackhole-tall.jpg')} />
         {/* eslint-disable-next-line @next/next/no-img-element */}
-        <img src="/media/blackhole-wide.jpg" alt="" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+        <img src={asset('/media/blackhole-wide.jpg')} alt="" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
       </picture>
     </div>
   );
