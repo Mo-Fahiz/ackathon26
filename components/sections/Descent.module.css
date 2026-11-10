@@ -1,240 +1,245 @@
 .descent {
   position: relative;
-  height: 494vh;
 }
 
 .sticky {
   position: sticky;
   top: 0;
   height: 100vh;
+  height: 100svh;
   overflow: hidden;
 }
 
-.kicker {
-  position: absolute;
-  top: 88px;
-  left: 0;
-  right: 0;
-  text-align: center;
-  font-size: clamp(1.4rem, 1rem + 1.2vw, 2rem);
-  font-weight: 600;
-  letter-spacing: -0.02em;
-}
-
-/* Light lines */
-.links {
+/* Quiets the black hole behind so the cards sit on near-black. */
+.veil {
   position: absolute;
   inset: 0;
-  width: 100%;
-  height: 100%;
+  background: radial-gradient(ellipse at 50% 50%, rgba(3, 3, 6, 0.93) 0%, rgba(3, 3, 6, 0.97) 70%);
   pointer-events: none;
 }
 
-.base {
-  fill: none;
-  stroke: rgba(245, 244, 250, 0.1);
-  stroke-width: 1;
+.head {
+  position: absolute;
+  top: clamp(84px, 13vh, 120px);
+  left: 0;
+  right: 0;
+  z-index: 30;
 }
 
-.lit {
-  fill: none;
-  stroke: var(--accent);
-  stroke-width: 1.6;
+.kicker {
+  margin: 0;
+  font-size: 1.05rem;
+  font-weight: 600;
+  color: var(--grey);
 }
 
-/* Energy flowing along the live line into the core */
-.pulse {
-  fill: none;
-  stroke: #e0d6ff;
-  stroke-width: 2;
-  stroke-linecap: round;
-  stroke-dasharray: 2 26;
-  animation: flow 1.6s linear infinite;
+.stage {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) clamp(140px, 16vw, 240px);
+  align-items: center;
+  gap: clamp(24px, 6vw, 96px);
+  padding-top: 6vh;
 }
 
-@keyframes flow {
-  to {
-    stroke-dashoffset: -28;
-  }
-}
-
-.node {
-  fill: var(--space);
-  stroke: rgba(245, 244, 250, 0.35);
-}
-
-.nodeLit {
-  fill: var(--accent);
-  filter: drop-shadow(0 0 6px var(--accent));
-}
-
-/* Stage cards */
 .cards {
+  position: relative;
   list-style: none;
   margin: 0;
   padding: 0;
+  height: 100%;
 }
 
+/* Every card sits on the same centre line; scroll moves them up and down from it. */
 .card {
   position: absolute;
-  width: clamp(250px, 22vw, 320px);
-  padding: 18px 20px;
-  border-radius: 16px;
-  border: 1px solid var(--line);
-  background: rgba(10, 10, 14, 0.62);
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
-  transition: border-color 0.6s var(--ease), box-shadow 0.6s var(--ease), opacity 0.6s var(--ease);
-}
-
-.a {
-  left: var(--gutter);
-  top: 19%;
-}
-
-.b {
-  left: calc(var(--gutter) + 2vw);
+  left: 0;
   top: 50%;
-}
-
-.c {
-  right: var(--gutter);
-  top: 19%;
-}
-
-.d {
-  right: calc(var(--gutter) + 2vw);
-  top: 50%;
-}
-
-.e {
-  left: 50%;
-  bottom: 7%;
-  transform: translateX(-50%);
-}
-
-.future {
-  opacity: 0.72;
-}
-
-.past {
-  opacity: 0.9;
-  border-color: rgba(104, 65, 230, 0.25);
-}
-
-.live {
-  opacity: 1;
-  border-color: rgba(104, 65, 230, 0.7);
-  box-shadow: 0 0 0 1px rgba(104, 65, 230, 0.15), 0 0 40px -6px rgba(104, 65, 230, 0.4), inset 0 0 30px -10px rgba(104, 65, 230, 0.25);
-}
-
-/* Date and event lead every card */
-.date {
-  display: block;
-  font-size: clamp(1.5rem, 1.2rem + 0.8vw, 1.9rem);
-  font-weight: 600;
-  letter-spacing: -0.02em;
-  line-height: 1;
-  color: var(--white);
-}
-
-.live .date,
-.past .date {
-  color: var(--accent-text);
-}
-
-.title {
-  margin-top: 8px;
-  font-size: 1.3rem;
-  font-weight: 600;
-  letter-spacing: -0.02em;
-  color: var(--white);
-}
-
-.line {
-  margin-top: 6px;
-  font-size: 0.95rem;
-  line-height: 1.45;
-  color: #b9b7c4;
-}
-
-.week {
-  list-style: none;
-  margin: 12px 0 0;
-  padding: 0;
+  width: 100%;
+  margin-top: -110px;
   display: grid;
-  grid-template-columns: repeat(6, 1fr);
-  gap: 4px;
+  grid-template-columns: clamp(220px, 24vw, 340px) minmax(0, 1fr);
+  align-items: center;
+  gap: clamp(20px, 3vw, 44px);
+  transform-origin: left center;
+  will-change: transform, opacity;
 }
 
-.week li {
-  display: flex;
-  flex-direction: column;
-  gap: 1px;
-  padding: 6px 4px;
-  border-radius: 6px;
-  border: 1px solid var(--line);
-  font-size: 0.6rem;
-  color: var(--grey);
-  overflow: hidden;
-  white-space: nowrap;
+.date {
+  position: relative;
+  display: grid;
+  grid-template-columns: auto 1fr;
+  grid-template-rows: 1fr auto;
+  column-gap: 16px;
+  min-height: 200px;
+  padding: 26px 30px;
+  border-radius: 28px;
+  background: #0d0d10;
+  border: 1px solid rgba(104, 65, 230, 0.18);
+  transition: background 0.5s var(--ease), border-color 0.5s var(--ease), box-shadow 0.5s var(--ease);
 }
 
 .day {
-  font-size: 0.9rem;
+  grid-row: 1 / 3;
+  align-self: center;
+  font-size: clamp(1.8rem, 1.2rem + 1.6vw, 3rem);
   font-weight: 600;
+  color: rgba(245, 244, 250, 0.14);
+}
+
+.dayRange {
+  font-size: clamp(1.1rem, 0.9rem + 0.8vw, 1.6rem);
+  white-space: nowrap;
+}
+
+.num {
+  justify-self: end;
+  align-self: center;
+  font-size: clamp(3.6rem, 2.2rem + 4vw, 6.4rem);
+  font-weight: 600;
+  line-height: 1;
+  letter-spacing: -0.04em;
+  white-space: nowrap;
+  color: #2a2350;
+  transition: color 0.5s var(--ease);
+}
+
+.month {
+  justify-self: end;
+  font-family: var(--font-mono), ui-monospace, monospace;
+  font-size: 0.82rem;
+  letter-spacing: 0.32em;
+  text-transform: uppercase;
+  color: #3f357a;
+  transition: color 0.5s var(--ease);
+}
+
+.text h3 {
+  margin: 0 0 8px;
+  font-size: clamp(1.4rem, 1rem + 1.2vw, 2rem);
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  color: rgba(245, 244, 250, 0.4);
+  transition: color 0.5s var(--ease);
+}
+
+.text p {
+  max-width: 32ch;
+  margin: 0;
+  font-size: var(--body);
+  color: rgba(154, 152, 168, 0.5);
+  transition: color 0.5s var(--ease);
+}
+
+.rows {
+  margin: 14px 0 0;
+  padding-left: 1.1em;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  color: rgba(154, 152, 168, 0.6);
+  font-size: 0.98rem;
+}
+
+.rows li::marker {
+  color: var(--accent);
+}
+
+.rowDate {
+  font-weight: 600;
+  color: inherit;
+}
+
+/* The card in focus */
+.active .date {
+  background: #141416;
+  border-color: rgba(122, 92, 240, 0.9);
+  box-shadow: 0 0 0 1px rgba(104, 65, 230, 0.2), 0 20px 60px -30px rgba(104, 65, 230, 0.6);
+}
+
+.active .num {
+  background: linear-gradient(180deg, #8f74f5 0%, #5a3cc7 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.active .month {
+  color: #8f74f5;
+}
+
+.active .text h3 {
   color: var(--white);
 }
 
-.week .finaleDay {
-  border-color: rgba(104, 65, 230, 0.6);
+.active .text p,
+.active .rows {
+  color: var(--grey);
 }
 
-.week .finaleDay .day {
-  color: var(--accent-text);
-}
-
-.week .today {
-  background: var(--accent);
+.active .rowDate {
   color: var(--white);
 }
 
-.week .today .day {
-  color: var(--white);
+/* 9 December: no weekday, centred date, a soft violet glow. */
+.finale .date {
+  grid-template-columns: 1fr;
+  justify-items: center;
+  text-align: center;
+  background: linear-gradient(180deg, #120d26 0%, #0c0918 100%);
 }
 
-/* Mid widths: pull the side cards in a little */
-@media (max-width: 1100px) {
-  .card {
-    width: clamp(220px, 26vw, 280px);
-  }
-  .b,
-  .d {
-    top: 52%;
-  }
+.finale .num,
+.finale .month {
+  justify-self: center;
 }
 
-/* Phones: the hole above, the live stage below it */
+.finale.active .date {
+  background: linear-gradient(180deg, #1d1450 0%, #120c33 100%);
+  border-color: rgba(150, 110, 255, 0.95);
+  box-shadow: 0 0 0 1px rgba(104, 65, 230, 0.35), 0 0 60px -6px rgba(104, 65, 230, 0.6), 0 0 120px -20px rgba(244, 92, 255, 0.35);
+}
+
+.finale.active .num {
+  background: linear-gradient(180deg, #a993ff 0%, #6a4fd6 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+}
+
+.star {
+  position: relative;
+  z-index: 25;
+}
+
 @media (max-width: 760px) {
-  .links {
-    display: none;
+  .stage {
+    grid-template-columns: minmax(0, 1fr);
+    grid-template-rows: auto 1fr;
+    align-items: start;
+    padding-top: calc(clamp(84px, 13vh, 120px) + 64px);
+    gap: 8px;
   }
-  .kicker {
-    top: 76px;
-    font-size: 1.2rem;
+  .star {
+    grid-row: 1;
+    width: 84px;
+    justify-self: end;
+    margin-top: -64px;
   }
-  /* Just under the hole, close to the middle of the screen. */
   .card {
-    left: var(--gutter);
-    right: var(--gutter);
-    top: 52%;
-    bottom: auto;
-    width: auto;
-    transform: none;
+    grid-template-columns: minmax(0, 1fr);
+    gap: 14px;
+    margin-top: -150px;
   }
-  .future,
-  .past {
-    opacity: 0;
-    pointer-events: none;
+  .date {
+    min-height: 0;
+    padding: 18px 22px;
+    border-radius: 22px;
+  }
+  .num {
+    font-size: 3.4rem;
+  }
+  .day {
+    font-size: 1.6rem;
   }
 }

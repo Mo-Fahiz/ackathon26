@@ -1,0 +1,135 @@
+.prizes {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  padding: 96px 0 56px;
+}
+
+.head {
+  margin-bottom: clamp(28px, 4vh, 44px);
+}
+
+.tiers {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 16px;
+}
+
+.tier {
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  padding: 26px 28px;
+  border-radius: 20px;
+  background: rgba(245, 244, 250, 0.04);
+  border: 1px solid var(--line);
+}
+
+.winner {
+  border-color: rgba(104, 65, 230, 0.85);
+  background: rgba(104, 65, 230, 0.1);
+  box-shadow: 0 0 0 1px rgba(104, 65, 230, 0.25), 0 0 50px -10px rgba(104, 65, 230, 0.55);
+}
+
+/* The badge ring, turning slowly behind the winner's amount */
+.ring {
+  position: absolute;
+  right: -50px;
+  top: 50%;
+  width: 240px;
+  height: 240px;
+  margin-top: -120px;
+  opacity: 0.22;
+  pointer-events: none;
+  animation: ring-turn 60s linear infinite;
+}
+
+@keyframes ring-turn {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.place {
+  position: relative;
+  font-size: 1rem;
+  font-weight: 600;
+}
+
+.amount {
+  position: relative;
+  font-size: clamp(2.8rem, 1.8rem + 3vw, 4.6rem);
+  font-weight: 600;
+  line-height: 1.05;
+  letter-spacing: -0.03em;
+  color: var(--white);
+}
+
+.winner .amount {
+  text-shadow: 0 0 34px rgba(104, 65, 230, 0.7);
+}
+
+.note {
+  position: relative;
+  color: var(--grey);
+  font-size: 0.95rem;
+}
+
+.extras {
+  margin-top: 16px;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  gap: 16px;
+}
+
+.extra {
+  padding: 26px 28px;
+  border-radius: 20px;
+  border: 1px solid var(--line);
+  background: rgba(245, 244, 250, 0.04);
+}
+
+.extra h3 {
+  margin: 0 0 10px;
+  font-size: 1.4rem;
+  font-weight: 600;
+}
+
+.extra p {
+  margin: 0;
+  color: var(--grey);
+  font-size: 1rem;
+  line-height: 1.5;
+}
+
+.ackelerator {
+  border-color: transparent;
+  background: linear-gradient(135deg, #2a1670 0%, #3b1f9e 100%);
+  box-shadow: 0 30px 80px -30px rgba(104, 65, 230, 0.6);
+}
+
+.ackelerator p {
+  color: #d9d0ff;
+}
+
+.footnote {
+  margin: 28px 0 0;
+  color: var(--grey);
+  font-size: 0.95rem;
+}
+
+@media (max-width: 860px) {
+  .tiers,
+  .extras {
+    grid-template-columns: minmax(0, 1fr);
+  }
+  .tier {
+    padding: 22px;
+  }
+}

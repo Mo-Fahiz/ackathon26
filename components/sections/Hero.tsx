@@ -25,19 +25,20 @@ export default function Hero() {
         >
           {hero.tagline}
         </motion.h1>
-        <motion.p
-          className={`${styles.meta} muted`}
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 1, delay: 1 }}
+        <motion.div
+          className={styles.when}
+          initial={{ opacity: 0, y: 16 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 1.1, ease, delay: 0.9 }}
         >
-          {hero.meta}
-        </motion.p>
+          <p className={styles.dates}>{hero.dates}</p>
+          <p className={`${styles.meta} caps`}>{hero.meta}</p>
+        </motion.div>
         <motion.div initial={{ opacity: 0, y: 12 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.9, ease, delay: 1.2 }}>
           <CtaButton href={links.register}>{cta}</CtaButton>
         </motion.div>
         <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 1, delay: 1.6 }}>
-          <Countdown />
+          <Countdown showLabel={false} />
         </motion.div>
       </motion.div>
     </section>

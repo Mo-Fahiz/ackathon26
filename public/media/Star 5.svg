@@ -1,0 +1,43 @@
+<svg width="181" height="179" viewBox="0 0 181 179" fill="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<g filter="url(#filter0_ddi_2112_281)">
+<use xlink:href="#stroke0_2112_281" fill="url(#paint0_linear_2112_281)"/>
+<mask id="stroke1_2112_281" maskUnits="userSpaceOnUse" x="53.3096" y="49.1895" width="74" height="72" fill="black">
+<rect fill="white" x="53.3096" y="49.1895" width="74" height="72"/>
+<use xlink:href="#stroke0_2112_281"/>
+</mask>
+<path d="M81.2966 70.1023L63.0934 64.2817C62.2179 64.0018 61.4603 64.9519 61.928 65.7431L71.6532 82.1946C71.9236 82.6519 71.7892 83.2408 71.3472 83.5355L55.447 94.1382C54.6823 94.6481 54.9527 95.8329 55.8629 95.9605L74.7889 98.6144C75.3149 98.6882 75.6915 99.1604 75.6464 99.6897L74.0223 118.732C73.9442 119.647 75.0391 120.175 75.7064 119.543L89.5814 106.4C89.967 106.035 90.571 106.035 90.9567 106.4L104.832 119.543C105.499 120.175 106.594 119.647 106.516 118.732L104.892 99.6897C104.847 99.1604 105.223 98.6882 105.749 98.6144L124.675 95.9605C125.585 95.8329 125.856 94.6481 125.091 94.1382L109.191 83.5355C108.749 83.2408 108.615 82.6519 108.885 82.1946L118.61 65.7431C119.078 64.9519 118.32 64.0018 117.445 64.2817L99.2415 70.1023C98.7355 70.2641 98.1914 70.002 98.0024 69.5056L91.2036 51.6447C90.8766 50.7857 89.6614 50.7857 89.3345 51.6447L82.5357 69.5056C82.3467 70.002 81.8025 70.2641 81.2966 70.1023Z" stroke-width="2" stroke="url(#paint1_linear_2112_281)" mask="url(#stroke1_2112_281)"/>
+</g>
+<defs>
+<filter id="filter0_ddi_2112_281" x="0" y="0" width="180.538" height="178.822" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+<feFlood flood-opacity="0" result="BackgroundImageFix"/>
+<feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha"/>
+<feOffset dy="4"/>
+<feGaussianBlur stdDeviation="27"/>
+<feComposite in2="hardAlpha" operator="out"/>
+<feColorMatrix type="matrix" values="0 0 0 0 0.957403 0 0 0 0 0.361046 0 0 0 0 1 0 0 0 0.7 0"/>
+<feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow_2112_281"/>
+<feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha"/>
+<feOffset/>
+<feGaussianBlur stdDeviation="7"/>
+<feComposite in2="hardAlpha" operator="out"/>
+<feColorMatrix type="matrix" values="0 0 0 0 1 0 0 0 0 0.685528 0 0 0 0 0.952829 0 0 0 0.55 0"/>
+<feBlend mode="normal" in2="effect1_dropShadow_2112_281" result="effect2_dropShadow_2112_281"/>
+<feBlend mode="normal" in="SourceGraphic" in2="effect2_dropShadow_2112_281" result="shape"/>
+<feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha"/>
+<feOffset dy="2"/>
+<feGaussianBlur stdDeviation="2.5"/>
+<feComposite in2="hardAlpha" operator="arithmetic" k2="-1" k3="1"/>
+<feColorMatrix type="matrix" values="0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 0 0 0 1 0"/>
+<feBlend mode="normal" in2="shape" result="effect3_innerShadow_2112_281"/>
+</filter>
+<linearGradient id="paint0_linear_2112_281" x1="90.269" y1="49.1895" x2="90.269" y2="125.108" gradientUnits="userSpaceOnUse">
+<stop stop-color="#FEE08E"/>
+<stop offset="1" stop-color="#D12AFF"/>
+</linearGradient>
+<linearGradient id="paint1_linear_2112_281" x1="90.269" y1="49.1895" x2="90.269" y2="125.108" gradientUnits="userSpaceOnUse">
+<stop stop-color="white"/>
+<stop offset="1" stop-color="#FF82FF"/>
+</linearGradient>
+<path id="stroke0_2112_281" d="M89.3345 51.6447C89.6614 50.7857 90.8766 50.7857 91.2036 51.6447L98.0024 69.5056C98.1914 70.002 98.7355 70.2641 99.2415 70.1023L117.445 64.2817C118.32 64.0018 119.078 64.9519 118.61 65.7431L108.885 82.1946C108.615 82.6519 108.749 83.2408 109.191 83.5355L125.091 94.1382C125.856 94.6481 125.585 95.8329 124.675 95.9605L105.749 98.6144C105.223 98.6882 104.847 99.1604 104.892 99.6897L106.516 118.732C106.594 119.647 105.499 120.175 104.832 119.543L90.9567 106.4C90.571 106.035 89.967 106.035 89.5814 106.4L75.7064 119.543C75.0391 120.175 73.9442 119.647 74.0223 118.732L75.6464 99.6897C75.6915 99.1604 75.3149 98.6882 74.7889 98.6144L55.8629 95.9605C54.9527 95.8329 54.6823 94.6481 55.447 94.1382L71.3472 83.5355C71.7892 83.2408 71.9236 82.6519 71.6532 82.1946L61.928 65.7431C61.4603 64.9519 62.2179 64.0018 63.0934 64.2817L81.2966 70.1023C81.8025 70.2641 82.3467 70.002 82.5357 69.5056L89.3345 51.6447Z"/>
+</defs>
+</svg>

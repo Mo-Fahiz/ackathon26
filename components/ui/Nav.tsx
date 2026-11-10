@@ -24,7 +24,13 @@ export default function Nav() {
           {/* eslint-disable-next-line @next/next/no-img-element */}
           <img src={brand.header} alt="ACKATHON" width={150} height={29} />
         </a>
-        <CtaButton href={links.register} arrow={false} className={`${styles.cta} ${pastHero ? styles.ctaDocked : ''}`}>
+        {/* Secondary while the hero's own CTA is on screen; takes over as the primary once it's gone. */}
+        <CtaButton
+          href={links.register}
+          arrow={false}
+          variant={pastHero ? 'primary' : 'secondary'}
+          className={`${styles.cta} ${pastHero ? styles.ctaDocked : ''}`}
+        >
           {cta}
         </CtaButton>
       </header>

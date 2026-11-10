@@ -36,7 +36,7 @@ function Unit({ value, label }: { value: number; label: string }) {
   );
 }
 
-export default function Countdown() {
+export default function Countdown({ showLabel = true }: { showLabel?: boolean }) {
   const now = useNow();
   const target = now === null ? null : getCountdownTarget(now);
   if (now === null) return <div className={styles.wrap} aria-hidden style={{ visibility: 'hidden' }} />;
@@ -50,9 +50,11 @@ export default function Countdown() {
 
   return (
     <div className={styles.wrap} role="timer" aria-label={`${days} days, ${hours} hours to ${target.label}`}>
-      <span className={styles.label}>
-        <span className={styles.pulse} aria-hidden /> {target.label}
-      </span>
+      {showLabel && (
+        <span className={styles.label}>
+          <span className={styles.pulse} aria-hidden /> {target.label}
+        </span>
+      )}
       <div className={styles.units} aria-hidden>
         <Unit value={days} label="days" />
         <span className={styles.sep}>:</span>

@@ -1,7 +1,7 @@
 'use client';
 
 import dynamic from 'next/dynamic';
-import { cta, footer, links } from '@/content/site';
+import { cta, eyebrows, footer, links } from '@/content/site';
 import CtaButton from '@/components/ui/CtaButton';
 import Reveal from '@/components/ui/Reveal';
 import styles from './Footer.module.css';
@@ -14,6 +14,9 @@ export default function Footer() {
     <footer id="footer" className={`${styles.footer} snap-screen`}>
       <Galaxy />
       <div className={`container ${styles.inner}`}>
+        <Reveal as="span" className="eyebrow">
+          {eyebrows.footer}
+        </Reveal>
         <Reveal as="h2" className="display">
           {footer.closing}
         </Reveal>

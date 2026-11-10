@@ -26,3 +26,11 @@
   pointer-events: none;
   background: radial-gradient(ellipse 60% 45% at center, rgba(3, 3, 6, 0.75), rgba(3, 3, 6, 0) 75%);
 }
+
+.eyebrow {
+  position: absolute;
+  top: 18vh;
+  left: 0;
+  right: 0;
+  text-align: center;
+}

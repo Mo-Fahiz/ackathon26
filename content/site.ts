@@ -7,8 +7,8 @@ const TODO = '#todo';
 
 export const links = {
   register: TODO, // TODO: registration link
-  template: TODO, // TODO: one-pager template link
-  buildSessions: TODO, // TODO: Build session sign-up
+  template: asset('/downloads/ACKATHON-2026-One-Pager-Template.docx'),
+  buildSessions: TODO, // TODO: AI build session sign-up
   help: TODO, // TODO: help channel or contact email
 };
 
@@ -29,55 +29,110 @@ export const cta = 'Register now';
 
 export const hero = {
   tagline: 'Imagination is the only limit.',
-  meta: '4–9 Dec · ACKO Tech, HSR',
+  dates: '4–9 Dec',
+  meta: '2026 · ACKO Tech, HSR',
 };
 
-export const beats = ['Pick a real problem.', 'Build it in five days.', 'Pitch it to the founders.'];
+export const eyebrows = {
+  beats: 'The brief',
+  timeline: 'The timeline',
+  crew: 'Anyone can build',
+  onePager: 'How to register',
+  prizes: 'Beyond bragging rights',
+  footer: '4–9 Dec · ACKO Tech, HSR',
+};
 
-// Outermost orbit first; the camera falls inward through them.
-export const orbits = [
-  { date: '10 Nov', title: 'Problems land', line: 'Leaders post real problems, each with a metric to move.' },
-  { date: '12 Nov', title: 'Crew up', line: 'Form a team of 3–5 and submit your one-pager.' },
-  { date: '25 Nov', title: 'Shortlist', line: 'Every page is read. The best ideas go to build.' },
-  { date: '4–9 Dec', title: 'Build orbit', line: 'Five days to build. Then a 10-minute pitch.', week: true },
-  { date: '9 Dec', title: 'Finale', line: 'Varun, Vish and Nitin pick the winners.' },
-];
+export const beats = ['Pick a real problem.', 'Build it with your crew.', 'Pitch it to the founders.'];
 
-export const week = [
-  { day: 4, label: 'Kick-off' },
-  { day: 5, label: 'Build' },
-  { day: 6, label: 'Build' },
-  { day: 7, label: 'Build' },
-  { day: 8, label: 'Build' },
-  { day: 9, label: 'Finale' },
-];
+// The confirmed schedule, told as five stacked date cards. A star beside them gains a point
+// with every card (3 → 7 points) and glows on the finale.
+export const timeline = {
+  heading: 'From problem to podium',
+  chapters: [
+    {
+      day: 'Thu',
+      num: '12',
+      month: 'November',
+      title: 'Registrations open',
+      line: 'Form a crew of 3–5 and submit your one-pager.',
+      rows: [
+        { date: '16 Nov', label: 'Format & scoring Q&A' },
+        { date: '17 & 19 Nov', label: 'AI build sessions' },
+      ],
+    },
+    {
+      day: 'Wed',
+      num: '25',
+      month: 'November',
+      title: 'Registrations close',
+      line: 'Last call for one-pagers. Every page gets read.',
+    },
+    {
+      day: 'Mon',
+      num: '30',
+      month: 'November',
+      title: 'Builders’ list announced',
+      line: 'The shortlisted crews find out they’re in.',
+    },
+    {
+      day: 'Fri–Tue',
+      num: '4–8',
+      month: 'December',
+      title: 'The build',
+      line: 'Kick off together, then two days to make it.',
+      rows: [
+        { date: '4 Dec', label: 'Kickoff & fireside' },
+        { date: '7–8 Dec', label: 'Build' },
+      ],
+    },
+    {
+      num: '9',
+      month: 'December',
+      title: 'The finale and winners announcement',
+      line: 'Demos on the stage. The founders pick the winners.',
+      finale: true,
+    },
+  ],
+} as const;
 
 export const crew = {
-  heading: "Everyone's in.",
-  line: 'Any ACKO employee. Teams of 3–5.',
-  newbie: 'Never built anything? Join a Build session',
+  image: asset('/media/team-crew.jpg'),
+  quote: 'Whoever writes the spec, be it a PM, a lawmaker, an engineer, a marketer, is now the programmer.',
+  quoteBy: 'Sean Grove, OpenAI',
+  quoteWhere: 'AI Engineer World’s Fair 2025',
+  newbie: 'Never built anything?',
+  newbieLine: 'AI build sessions on 17 & 19 Nov get you ready.',
+  newbieCta: 'Join an AI build session',
 };
 
+// How to register: one page, and the template to write it in.
 export const onePager = {
   heading: 'Your idea, on one page.',
-  line: '400 words. One sketch. Only the page counts.',
-  parts: ['The problem', 'The idea', 'The bet'],
-  flavours: [
-    { id: 'grounded', name: 'Grounded', line: "Shippable with today's data." },
-    { id: 'stretch', name: 'Stretch', line: 'Needs a partner or new data.' },
-    { id: 'wild', name: 'Wild', line: 'A bold bet. A quarter of places are reserved.' },
-  ],
-  template: 'Get the template',
+  line: 'Register with one page: the problem, the idea and the bet. About 400 words and a sketch. Use our template.',
+  file: {
+    name: 'One-pager template',
+    meta: 'DOCX · 1 page',
+    thumb: asset('/downloads/one-pager-thumb.jpg'),
+    cta: 'Download template',
+  },
 };
 
-export const scoring = {
-  heading: 'What wins',
-  criteria: [
-    { weight: 40, name: 'Live demo' },
-    { weight: 35, name: 'Value' },
-    { weight: 15, name: 'Novelty' },
-    { weight: 10, name: 'Presentation' },
+export const prizes = {
+  heading: 'What you win',
+  tiers: [
+    { place: 'Winner', amount: 2.5, note: 'prize pool for the team' },
+    { place: '1st runner-up', amount: 2, note: 'prize pool for the team' },
+    { place: '2nd runner-up', amount: 1.5, note: 'prize pool for the team' },
   ],
+  ackelerator: {
+    title: 'Ackelerator program',
+    line: 'Select teams take their build to production: a sponsor, a budget and a date to ship. Not a trophy and a thank-you.',
+  },
+  kit: {
+    title: 'ACKATHON kit',
+    line: 'Hoodie and swag for every participant. Pick yours up after the kickoff.',
+  },
+  note: '₹6 lakh across three teams, plus a real path from demo to production.',
 };
 
 export const footer = {

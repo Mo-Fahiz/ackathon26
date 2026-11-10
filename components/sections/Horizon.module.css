@@ -28,14 +28,108 @@
   text-shadow: 0 2px 30px rgba(3, 3, 6, 0.9);
 }
 
-.line {
-  font-size: var(--body);
+.quote {
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 22px;
 }
 
-.link {
-  color: var(--accent-text);
-  font-weight: 600;
-  text-decoration: none;
-  border-bottom: 1px solid rgba(104, 65, 230, 0.4);
-  padding-bottom: 2px;
+.quote blockquote {
+  margin: 0;
+}
+
+.quote p {
+  max-width: 24ch;
+  margin: 0;
+  font-size: clamp(1.9rem, 1.1rem + 2.8vw, 3.6rem);
+  font-weight: 500;
+  line-height: 1.12;
+  letter-spacing: -0.025em;
+  text-wrap: balance;
+}
+
+.quote figcaption {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  font-size: 0.95rem;
+}
+
+.quote figcaption span {
+  color: var(--grey);
+  font-size: 0.85rem;
+}
+
+/* Team photo: 10% at rest, 80% inside the cursor's light */
+.photo {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+
+.base,
+.reveal {
+  position: absolute;
+  inset: 0;
+  background-size: cover;
+  background-position: center 40%;
+}
+
+.base {
+  opacity: 0.1;
+}
+
+.reveal {
+  --x: 50%;
+  --y: 50%;
+  --r: 0px;
+  opacity: 0.8;
+  -webkit-mask-image: radial-gradient(circle var(--r) at var(--x) var(--y), #000 0%, rgba(0, 0, 0, 0.85) 35%, transparent 100%);
+  mask-image: radial-gradient(circle var(--r) at var(--x) var(--y), #000 0%, rgba(0, 0, 0, 0.85) 35%, transparent 100%);
+}
+
+/* "Never built anything?" + secondary CTA, in one container */
+.newbie {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  margin-top: 14px;
+  padding: 16px 16px 16px 24px;
+  border-radius: 20px;
+  background: rgba(3, 3, 6, 0.55);
+  border: 1px solid var(--line);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  text-align: left;
+  text-shadow: none;
+}
+
+.newbie > div {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.newbie strong {
+  font-size: 1.05rem;
+}
+
+.newbie > div > span {
+  font-size: 0.92rem;
+  color: var(--grey);
+}
+
+@media (max-width: 640px) {
+  .newbie {
+    flex-direction: column;
+    align-items: stretch;
+    text-align: center;
+    padding: 20px;
+    gap: 16px;
+  }
+  .newbie :global(.btn) {
+    justify-content: center;
+  }
 }

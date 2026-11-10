@@ -10,10 +10,11 @@ type Props = {
   children: React.ReactNode;
   arrow?: boolean;
   className?: string;
+  variant?: 'primary' | 'secondary';
 };
 
 // White CTA. On hover it picks up the brand purple: a soft glow and a few faint sparks, like matter near the horizon.
-export default function CtaButton({ href, children, arrow = true, className = '' }: Props) {
+export default function CtaButton({ href, children, arrow = true, className = '', variant = 'primary' }: Props) {
   const reduced = useReducedMotion();
   const [sparks, setSparks] = useState<Spark[]>([]);
   const timer = useRef<number | null>(null);
@@ -25,7 +26,7 @@ export default function CtaButton({ href, children, arrow = true, className = ''
   };
 
   const start = () => {
-    if (reduced || timer.current !== null) return;
+    if (reduced || variant !== 'primary' || timer.current !== null) return;
     const emit = () =>
       setSparks((s) => [
         ...s.slice(-10),
@@ -47,7 +48,7 @@ export default function CtaButton({ href, children, arrow = true, className = ''
   return (
     <a
       href={href}
-      className={`btn btn-primary ${className}`}
+      className={`btn ${variant === 'primary' ? 'btn-primary' : 'btn-secondary'} ${className}`}
       onPointerEnter={start}
       onPointerLeave={stop}
       onFocus={start}

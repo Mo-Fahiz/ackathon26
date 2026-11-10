@@ -1,0 +1,22 @@
+.wrap {
+  --lit: 0;
+  position: relative;
+  width: 100%;
+  aspect-ratio: 1;
+}
+
+.svg {
+  display: block;
+  width: 100%;
+  height: 100%;
+  overflow: visible;
+}
+
+/* Pink-violet halo, only on the finale star */
+.glow {
+  opacity: calc(var(--lit) * 0.75);
+}
+
+.lit {
+  opacity: var(--lit);
+}

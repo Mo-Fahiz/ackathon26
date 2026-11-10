@@ -3,7 +3,17 @@
 import { useEffect, useRef, useState } from 'react';
 import { animate, useInView } from 'framer-motion';
 
-export default function CountUp({ to, duration = 1.6, delay = 0 }: { to: number; duration?: number; delay?: number }) {
+export default function CountUp({
+  to,
+  duration = 1.6,
+  delay = 0,
+  decimals = 0,
+}: {
+  to: number;
+  duration?: number;
+  delay?: number;
+  decimals?: number;
+}) {
   const ref = useRef<HTMLSpanElement>(null);
   const inView = useInView(ref, { once: true, margin: '0px 0px -10% 0px' });
   const [val, setVal] = useState(0);
@@ -14,14 +24,14 @@ export default function CountUp({ to, duration = 1.6, delay = 0 }: { to: number;
       duration,
       delay,
       ease: [0.16, 1, 0.3, 1],
-      onUpdate: (v) => setVal(Math.round(v)),
+      onUpdate: (v) => setVal(Number(v.toFixed(decimals))),
     });
     return () => controls.stop();
-  }, [inView, to, duration, delay]);
+  }, [inView, to, duration, delay, decimals]);
 
   return (
     <span ref={ref} style={{ fontVariantNumeric: 'tabular-nums' }}>
-      <span aria-hidden>{val}</span>
+      <span aria-hidden>{val.toFixed(decimals).replace(/\.0+$/, '')}</span>
       <span className="sr-only">{to}</span>
     </span>
   );

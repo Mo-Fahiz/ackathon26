@@ -2,7 +2,7 @@
 
 import { motion, MotionValue, useScroll, useTransform } from 'framer-motion';
 import { useRef } from 'react';
-import { beats } from '@/content/site';
+import { beats, eyebrows } from '@/content/site';
 import styles from './Beats.module.css';
 
 function Beat({ text, i, n, progress }: { text: string; i: number; n: number; progress: MotionValue<number> }) {
@@ -28,6 +28,7 @@ export default function Beats() {
     <section id="beats" ref={ref} className={styles.beats}>
       <div className={styles.sticky}>
         <div className={styles.scrim} aria-hidden />
+        <span className={`eyebrow ${styles.eyebrow}`}>{eyebrows.beats}</span>
         <h2 className="sr-only">{beats.join(' ')}</h2>
         {beats.map((t, i) => (
           <Beat key={t} text={t} i={i} n={beats.length} progress={scrollYProgress} />
